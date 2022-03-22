@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="tabUser" class="com.qf.pojo.TabUser">
+
+       <constructor-arg name="id" value="4"></constructor-arg>
+       <constructor-arg name="name" value="小马"></constructor-arg>
+       <constructor-arg name="age" value="22"></constructor-arg>
+       <constructor-arg name="tabUserInfo" ref="tabUserInfo"></constructor-arg>
+    </bean>
+
+    <bean id="tabUserInfo" class="com.qf.pojo.TabUserInfo" >
+        <constructor-arg name="addrId" value="59"></constructor-arg>
+        <constructor-arg name="address" value="南窑国际79排"></constructor-arg>
+        <constructor-arg name="sex" value="男"></constructor-arg>
+        <constructor-arg name="phone" value="10086"></constructor-arg>
+
+    </bean>
+
+    <bean id="user" class="com.qf.pojo.User">
+        <property name="id" value="1"></property>
+        <property name="username" value="高圆圆"></property>
+        <property name="password" value="123456"></property>
+        <property name="sex" value="女"></property>
+        <property name="age" value="42"></property>
+        <property name="bornDate" value="1990/02/27"></property>
+
+
+        <!--注入复杂数据,数组类型数据-->
+        <property name="hobbys">
+            <array>
+                <value>足球</value>
+                <value>健身</value>
+                <value>玩游戏</value>
+            </array>
+        </property>
+
+        <!--set集合类型-->
+        <property name="phones">
+            <set>
+                <value>13335390494</value>
+                <value>13689257999</value>
+                <value>13888886666</value>
+            </set>
+        </property>
+
+        <!--List集合类型-->
+        <property name="names">
+            <list>
+                <value>刘桑</value>
+                <value>符桑</value>
+                <value>魏桑</value>
+            </list>
+        </property>
+
+        <!--Map集合类型-->
+        <property name="peple">
+            <!--键值对元素-->
+            <map>
+                <entry key="id" value="001"></entry>
+                <entry key="name" value="文章"></entry>
+                <entry key="age" value="35"></entry>
+                <entry key="address" value="西安市"></entry>
+            </map>
+        </property>
+
+        <!--Properties 属性集合列表-->
+        <property name="files">
+            <props>
+                <prop key="prduct_id">1</prop>
+                <prop key="product_name">华为仓颉</prop>
+                <prop key="product_desc">为中国人使用中文编程而生</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
